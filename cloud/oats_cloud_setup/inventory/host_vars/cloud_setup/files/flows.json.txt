@@ -1,0 +1,888 @@
+[
+    {
+        "id": "89826f5822f4addf",
+        "type": "tab",
+        "label": "OATS",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "67c3998c806c3a62",
+        "type": "postgreSQLConfig",
+        "name": "sensors",
+        "host": "127.0.0.1",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "sensors",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "admin",
+        "userFieldType": "str",
+        "password": "password",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "05f9ebe1784cb954",
+        "type": "mqtt-broker",
+        "name": "mqtt_datahub",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6d7f0b2d47a1f492",
+        "type": "ui_group",
+        "name": "Configuration",
+        "tab": "8eba954c6b776c48",
+        "order": 1,
+        "disp": true,
+        "width": 14,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8eba954c6b776c48",
+        "type": "ui_tab",
+        "name": "OATS: Status",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "0b38e93a92cf42b3",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "9971a519488e4408",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 2,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "f890192612dcaa1a",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 5,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "41ea66a842dd8c92",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 8,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "1fa95670a6b2dd73",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 10,
+        "width": 14,
+        "height": 1
+    },
+    {
+        "id": "bc15f787af958f93",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 12,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "68aa038f29dc62ac",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 14,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "98783b5523c32209",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "ms_to_s",
+        "func": "var current_unix=global.get('current_unix') || 0;\n\nglobal.set('current_unix', Math.floor(Date.now() / 1000));\n\nmsg.payload = global.get('current_unix') || 0;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 240,
+        "wires": [
+            [
+                "df4a797bfe7f996a",
+                "b7ad4c13ce27cf3b"
+            ]
+        ]
+    },
+    {
+        "id": "7a52d43e630bb0a5",
+        "type": "inject",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "98783b5523c32209"
+            ]
+        ]
+    },
+    {
+        "id": "df4a797bfe7f996a",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 6,
+        "width": 6,
+        "height": 1,
+        "name": "current_time_unix",
+        "label": "Current time (unix):",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "x": 610,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b7ad4c13ce27cf3b",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "date conversion",
+        "func": "var unix = global.get('current_unix') || 0;\nunix = unix * 1000\n\nvar date;\ndate = new Date(unix);\ndate = (date.getFullYear() + '-' + ('00' + (date.getMonth()+1)).slice(-2) + '-' + ('00' + date.getDate()).slice(-2) + ' ' + ('00' + date.getHours()).slice(-2) + ':' + ('00' + date.getMinutes()).slice(-2) + ':' + ('00' + date.getSeconds()).slice(-2));\n\nmsg.payload = date;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 280,
+        "wires": [
+            [
+                "85be5450f50a0119"
+            ]
+        ]
+    },
+    {
+        "id": "85be5450f50a0119",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 4,
+        "width": 6,
+        "height": 1,
+        "name": "current_time",
+        "label": "Current time: ",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "x": 790,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "991cbda05e34ee26",
+        "type": "comment",
+        "z": "89826f5822f4addf",
+        "name": "System Control",
+        "info": "",
+        "x": 100,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e078f4ea904f9998",
+        "type": "inject",
+        "z": "89826f5822f4addf",
+        "name": "Startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "f502b6be830b0b3f",
+                "2cb2e30eb6a5d83a"
+            ]
+        ]
+    },
+    {
+        "id": "f502b6be830b0b3f",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "ms_to_s",
+        "func": "var current_unix=global.get('current_unix') || 0;\n\nglobal.set('current_unix', Math.floor(Date.now() / 1000));\n\nmsg.payload = global.get('current_unix') || 0;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "7b1978e579f72af8",
+                "5967a92d97cabdad"
+            ]
+        ]
+    },
+    {
+        "id": "5967a92d97cabdad",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "date conversion",
+        "func": "var unix = global.get('current_unix') || 0;\nunix = unix * 1000\n\nvar date;\ndate = new Date(unix);\ndate = (date.getFullYear() + '-' + ('00' + (date.getMonth()+1)).slice(-2) + '-' + ('00' + date.getDate()).slice(-2) + ' ' + ('00' + date.getHours()).slice(-2) + ':' + ('00' + date.getMinutes()).slice(-2) + ':' + ('00' + date.getSeconds()).slice(-2));\n\nmsg.payload = date;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "51b4f99107eb9979"
+            ]
+        ]
+    },
+    {
+        "id": "7b1978e579f72af8",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 9,
+        "width": 6,
+        "height": 1,
+        "name": "boot_time_unix",
+        "label": "Boot time (unix):",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 500,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "51b4f99107eb9979",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 7,
+        "width": 6,
+        "height": 1,
+        "name": "boot_time",
+        "label": "Boot time: ",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 660,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2cb2e30eb6a5d83a",
+        "type": "file in",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "filename": "/home/pi/config.json",
+        "format": "utf8",
+        "allProps": false,
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "333ef8076fa6ba32"
+            ]
+        ]
+    },
+    {
+        "id": "333ef8076fa6ba32",
+        "type": "json",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 530,
+        "y": 100,
+        "wires": [
+            [
+                "52b908281b85f563"
+            ]
+        ]
+    },
+    {
+        "id": "52b908281b85f563",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "Restore",
+        "func": "var output = [];\n\nfor (var i=0; i<msg.payload.length; i++) {\n    switch (msg.payload[i].type) {\n        case 'undefined': \n            // the global variable probably had no value, nothing needs to be restored\n            output.push(msg.payload[i].key + \" is undefined.\");\n            break;\n        case 'number':\n            if (msg.payload[i].value===\"NaN\") {\n                // there is no valid value to be restored, skip this variable\n                output.push(msg.payload[i].key + \" is NaN.\");\n            } else {\n                if (msg.payload[i].value.toString().indexOf(\".\")>-1) {\n                    // the value appears to be a float\n                    global.set(msg.payload[i].key,parseFloat(msg.payload[i].value));\n                    output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n                } else {\n                    global.set(msg.payload[i].key,parseInt(msg.payload[i].value));\n                    output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n                }\n            }\n            break;\n        case 'string':\n            global.set(msg.payload[i].key,msg.payload[i].value);\n            output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n            break;\n        case 'boolean':\n            global.set(msg.payload[i].key,msg.payload[i].value===\"true\");\n            output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n            break;\n    }\n}\n\nmsg.payload = output;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 100,
+        "wires": [
+            [
+                "732ee04a94ac5711",
+                "2977a24cf5163e1b"
+            ]
+        ]
+    },
+    {
+        "id": "87bc579368c48e97",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "datahub_id",
+        "label": "Datahub ID: ",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 1070,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "732ee04a94ac5711",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "Get Datahub ID",
+        "func": "// Assign MQTT input to variables\nvar datahub_id=global.get('datahub_id') || '';\nmsg.payload = datahub_id;\nreturn(msg);\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 100,
+        "wires": [
+            [
+                "87bc579368c48e97"
+            ]
+        ]
+    },
+    {
+        "id": "f0144dc128ec85b0",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "name": "project_name",
+        "label": "Project: ",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 1080,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2977a24cf5163e1b",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "Get Project Name",
+        "func": "// Assign MQTT input to variables\nvar project=global.get('project') || '';\nmsg.payload = project;\nreturn(msg);\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 140,
+        "wires": [
+            [
+                "f0144dc128ec85b0"
+            ]
+        ]
+    },
+    {
+        "id": "b46322cf1ec3bc58",
+        "type": "json",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 360,
+        "wires": [
+            [
+                "b9ec6393b0d71d0a"
+            ]
+        ]
+    },
+    {
+        "id": "85047fbd7399b273",
+        "type": "comment",
+        "z": "89826f5822f4addf",
+        "name": "Data In ",
+        "info": "",
+        "x": 90,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "e08a7801bd06b733",
+        "type": "comment",
+        "z": "89826f5822f4addf",
+        "name": "Device Status Table",
+        "info": "",
+        "x": 130,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "d7560838a99db157",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "From Postgres",
+        "func": "var query = \"\";\nquery  = \"select system_table.device_id, location_table.last_location_msg, inertial_table.last_inertial_msg, system_table.last_system_msg, system_table.vbat \";\nquery  += \"from (select device_id, timestamp + interval '10 hour' as last_system_msg, sensor_data::json->'vbat' as vbat \";\nquery  += \"from (select *, max(timestamp) over (partition by device_id) as last_packet from sensors.data where data_type = 'systemlog') t \";\nquery  += \"where timestamp = last_packet) system_table \";\nquery  += \"inner join (select device_id, max(timestamp) + interval '10 hour' as last_location_msg from sensors.data where data_type = 'location' group by device_id) location_table on system_table.device_id=location_table.device_id \";\nquery  += \"inner join (select device_id, max(timestamp) + interval '10 hour' as last_inertial_msg from sensors.data where data_type = 'accelerometer_features' group by device_id) inertial_table on system_table.device_id=inertial_table.device_id; \";\n\n\nmsg.query = query;\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 500,
+        "wires": [
+            [
+                "3f19be7f7970eb16"
+            ]
+        ]
+    },
+    {
+        "id": "ff40e1ade2d9bbd9",
+        "type": "ui_template",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "name": "Device Status Table",
+        "order": 15,
+        "width": 14,
+        "height": 12,
+        "format": "<table id=\"table\" border=\"1\">\n    <tr>\n        <th>Device id</th>\n        <th>Last Location Message</th>\n        <th>Last Inertial Message</th>\n        <th>Last System Message</th>\n        <th>Battery</th>\n        </tr>\n    <tbody>\n        <tr ng-repeat=\"row in msg.payload\">\n            <td ng-repeat=\"item in row\" >{{item}}</td>\n        </tr>\n    </tbody>\n</table>",
+        "storeOutMessages": true,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 670,
+        "y": 499,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8edcdb16a21f3386",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "current_timestamp",
+        "func": "var unix = global.get('current_unix') || 0;\nunix = unix * 1000\n\nvar date;\ndate = new Date(unix);\ndate = (date.getFullYear() + '-' + ('00' + (date.getMonth()+1)).slice(-2) + '-' + ('00' + date.getDate()).slice(-2) + ' ' + ('00' + date.getHours()).slice(-2) + ':' + ('00' + date.getMinutes()).slice(-2) + ':' + ('00' + date.getSeconds()).slice(-2));\n\nmsg.payload = date;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 670,
+        "y": 539,
+        "wires": [
+            [
+                "898225c161c944bd"
+            ]
+        ]
+    },
+    {
+        "id": "898225c161c944bd",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 11,
+        "width": 6,
+        "height": 1,
+        "name": "timestamp",
+        "label": "Last Update: ",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 850,
+        "y": 539,
+        "wires": []
+    },
+    {
+        "id": "87e58988ee77d868",
+        "type": "inject",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 500,
+        "wires": [
+            [
+                "d7560838a99db157"
+            ]
+        ]
+    },
+    {
+        "id": "f8869d03993bd897",
+        "type": "ui_button",
+        "z": "89826f5822f4addf",
+        "name": "DeviceStatusRefresh",
+        "group": "6d7f0b2d47a1f492",
+        "order": 13,
+        "width": 8,
+        "height": 1,
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 540,
+        "wires": [
+            [
+                "d7560838a99db157"
+            ]
+        ]
+    },
+    {
+        "id": "4bf254b82a582aec",
+        "type": "postgresql",
+        "z": "89826f5822f4addf",
+        "name": "postgres",
+        "query": "",
+        "postgreSQLConfig": "67c3998c806c3a62",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 700,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b9ec6393b0d71d0a",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "MQTT_to_Postgresql",
+        "func": "// Assign MQTT input to variables\nvar ts_unix = msg.payload.time;\ndelete msg.payload.time;\nvar timestamp = new Date(ts_unix * 1000).toISOString()\n\nvar sensor_data = JSON.stringify(msg.payload);\nvar data_type = msg.topic.split(\"/\")[2];\nvar datahub_id = msg.topic.split(\"/\")[3];\nvar device_id = msg.topic.split(\"/\")[4];\n\nif(ts_unix > 1600000000 && ts_unix < 2000000000){\n    var query = `\n    INSERT INTO sensors.data (timestamp, datahub_id, device_id, ts_unix, data_type, sensor_data )\n    VALUES ('${timestamp}', '${datahub_id}', '${device_id}', '${ts_unix}', '${data_type}', '${sensor_data}');\n    `;\n\n    msg.query = query\n    \n    return(msg);\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 360,
+        "wires": [
+            [
+                "4bf254b82a582aec",
+                "3a5b8255b9bc9459"
+            ]
+        ]
+    },
+    {
+        "id": "3f19be7f7970eb16",
+        "type": "postgresql",
+        "z": "89826f5822f4addf",
+        "name": "postgres",
+        "query": "",
+        "postgreSQLConfig": "67c3998c806c3a62",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 480,
+        "y": 500,
+        "wires": [
+            [
+                "ff40e1ade2d9bbd9",
+                "8edcdb16a21f3386"
+            ]
+        ]
+    },
+    {
+        "id": "f8c01404b829b99c",
+        "type": "mqtt in",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "topic": "oats/data/#",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "05f9ebe1784cb954",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 110,
+        "y": 360,
+        "wires": [
+            [
+                "b46322cf1ec3bc58"
+            ]
+        ]
+    },
+    {
+        "id": "3a5b8255b9bc9459",
+        "type": "msg-resend",
+        "z": "89826f5822f4addf",
+        "interval": "15",
+        "intervalUnit": "mins",
+        "maximum": "1",
+        "bytopic": false,
+        "clone": false,
+        "firstDelayed": true,
+        "addCounters": false,
+        "waitForResend": false,
+        "highRate": false,
+        "outputCountField": "",
+        "outputMaxField": "",
+        "name": "",
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "e2b2ba032586a4cd"
+            ]
+        ]
+    },
+    {
+        "id": "e2b2ba032586a4cd",
+        "type": "exec",
+        "z": "89826f5822f4addf",
+        "command": "bash location_data_processing/gnss_processing.sh",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Process Location Data",
+        "x": 940,
+        "y": 420,
+        "wires": [
+            [
+                "2b316120d371da23"
+            ],
+            [
+                "2b316120d371da23"
+            ],
+            [
+                "2b316120d371da23"
+            ]
+        ]
+    },
+    {
+        "id": "2b316120d371da23",
+        "type": "debug",
+        "z": "89826f5822f4addf",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 420,
+        "wires": []
+    }
+]

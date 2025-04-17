@@ -1,0 +1,11 @@
+*.DS_Store
+*.Rhistory
+trackers/firmware/oats_tracker_v2.2.x/build
+trackers/firmware/oats_tracker_v2.2.x/.vscode
+.Rproj.user
+*/venv/*
+*.drawio
+*.RData
+/cloud/location_data_processing/.idea
+/cloud/oats_cloud_setup/inventory/host_vars/cloud_setup/files/location_data_processing/.idea
+/cloud/location_data_processing/.idea

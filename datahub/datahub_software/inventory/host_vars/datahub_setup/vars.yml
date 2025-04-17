@@ -1,0 +1,23 @@
+hostname: datahub
+host: datahub.local
+time_zone: Australia/Sydney
+
+# cloud details
+cloud_hostname: "203.101.226.139"
+
+# PostgreSQL database info
+postgresql_version: 16
+local_database_name: "sensors"
+local_database_user: "admin"
+cloud_database_user: "admin"
+
+# mosquitto
+mqtt_username: "admin"
+
+#node red
+nodered_user: "admin"
+node_red_palettes:
+  - node-red-dashboard
+  - node-red-contrib-msg-resend
+  - node-red-contrib-isonline
+  - node-red-contrib-postgresql

@@ -1,0 +1,2 @@
+[prod]
+datahub_setup ansible_host=datahub.local ansible_user=pi

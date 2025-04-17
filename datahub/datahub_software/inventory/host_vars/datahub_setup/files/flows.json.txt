@@ -1,0 +1,2272 @@
+"
+[
+    {
+        "id": "89826f5822f4addf",
+        "type": "tab",
+        "label": "OATS",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "29a3d88b3fa190b3",
+        "type": "tab",
+        "label": "OATS - Tracker - Device Config",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "67c3998c806c3a62",
+        "type": "postgreSQLConfig",
+        "name": "local_database_name",
+        "host": "127.0.0.1",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "local_database_name",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "local_database_user",
+        "userFieldType": "str",
+        "password": "postgresql_password",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "05f9ebe1784cb954",
+        "type": "mqtt-broker",
+        "name": "mqtt_datahub",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6d7f0b2d47a1f492",
+        "type": "ui_group",
+        "name": "Configuration",
+        "tab": "8eba954c6b776c48",
+        "order": 1,
+        "disp": true,
+        "width": 14,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8eba954c6b776c48",
+        "type": "ui_tab",
+        "name": "OATS: Status",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "0b38e93a92cf42b3",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ea6018dec67637f7",
+        "type": "ui_group",
+        "name": "Device Configuration",
+        "tab": "d374c09eba1ecf8e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0b1acb879eb8c76b",
+        "type": "ui_group",
+        "name": "Current Configuration",
+        "tab": "d374c09eba1ecf8e",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d374c09eba1ecf8e",
+        "type": "ui_tab",
+        "name": "OATS Device Configuration",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c01f9ae489e874fb",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 2,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "11c16b81d903ad1b",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 5,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "4d138cf44d6f332f",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 8,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "4d198a258775b315",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 11,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "3f8f2962e310f48b",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 14,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "9973b6e4a5c0ef24",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 16,
+        "width": 14,
+        "height": 1
+    },
+    {
+        "id": "700ed24493e25dc6",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 20,
+        "width": 14,
+        "height": 1
+    },
+    {
+        "id": "90f54073cb657075",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 21,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "92e3a39d7f827c74",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 24,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "ddfa9f7143bea7c4",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 25,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "c64fa74daf117df7",
+        "type": "ui_spacer",
+        "z": "89826f5822f4addf",
+        "name": "spacer",
+        "group": "6d7f0b2d47a1f492",
+        "order": 28,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "7fc5a5f1cac3b955",
+        "type": "mqtt-broker",
+        "name": "cloud",
+        "broker": "cloud_mqtt_broker",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "499b4c4962d6917a",
+        "type": "mqtt out",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "topic": "oats/system/time/",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "05f9ebe1784cb954",
+        "x": 590,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "98783b5523c32209",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "ms_to_s",
+        "func": "var current_unix=global.get('current_unix') || 0;\n\nglobal.set('current_unix', Math.floor(Date.now() / 1000));\n\nmsg.payload = global.get('current_unix') || 0;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 400,
+        "wires": [
+            [
+                "df4a797bfe7f996a",
+                "b7ad4c13ce27cf3b",
+                "499b4c4962d6917a"
+            ]
+        ]
+    },
+    {
+        "id": "7a52d43e630bb0a5",
+        "type": "inject",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 400,
+        "wires": [
+            [
+                "98783b5523c32209"
+            ]
+        ]
+    },
+    {
+        "id": "df4a797bfe7f996a",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 6,
+        "width": 6,
+        "height": 1,
+        "name": "current_time_unix",
+        "label": "Current time (unix):",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "x": 590,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "b7ad4c13ce27cf3b",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "date conversion",
+        "func": "var unix = global.get('current_unix') || 0;\nunix = unix * 1000\n\nvar date;\ndate = new Date(unix);\ndate = (date.getFullYear() + '-' + ('00' + (date.getMonth()+1)).slice(-2) + '-' + ('00' + date.getDate()).slice(-2) + ' ' + ('00' + date.getHours()).slice(-2) + ':' + ('00' + date.getMinutes()).slice(-2) + ':' + ('00' + date.getSeconds()).slice(-2));\n\nmsg.payload = date;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 480,
+        "wires": [
+            [
+                "85be5450f50a0119"
+            ]
+        ]
+    },
+    {
+        "id": "85be5450f50a0119",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 4,
+        "width": 6,
+        "height": 1,
+        "name": "current_time",
+        "label": "Current time: ",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "x": 770,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "991cbda05e34ee26",
+        "type": "comment",
+        "z": "89826f5822f4addf",
+        "name": "System Control",
+        "info": "",
+        "x": 100,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e078f4ea904f9998",
+        "type": "inject",
+        "z": "89826f5822f4addf",
+        "name": "Startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "f502b6be830b0b3f",
+                "2cb2e30eb6a5d83a"
+            ]
+        ]
+    },
+    {
+        "id": "f502b6be830b0b3f",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "ms_to_s",
+        "func": "var current_unix=global.get('current_unix') || 0;\n\nglobal.set('current_unix', Math.floor(Date.now() / 1000));\n\nmsg.payload = global.get('current_unix') || 0;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "7b1978e579f72af8",
+                "5967a92d97cabdad"
+            ]
+        ]
+    },
+    {
+        "id": "5967a92d97cabdad",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "date conversion",
+        "func": "var unix = global.get('current_unix') || 0;\nunix = unix * 1000\n\nvar date;\ndate = new Date(unix);\ndate = (date.getFullYear() + '-' + ('00' + (date.getMonth()+1)).slice(-2) + '-' + ('00' + date.getDate()).slice(-2) + ' ' + ('00' + date.getHours()).slice(-2) + ':' + ('00' + date.getMinutes()).slice(-2) + ':' + ('00' + date.getSeconds()).slice(-2));\n\nmsg.payload = date;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "51b4f99107eb9979"
+            ]
+        ]
+    },
+    {
+        "id": "7b1978e579f72af8",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 9,
+        "width": 6,
+        "height": 1,
+        "name": "boot_time_unix",
+        "label": "Boot time (unix):",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 500,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "51b4f99107eb9979",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 7,
+        "width": 6,
+        "height": 1,
+        "name": "boot_time",
+        "label": "Boot time: ",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 660,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2cb2e30eb6a5d83a",
+        "type": "file in",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "filename": "/home/pi/config.json",
+        "format": "utf8",
+        "allProps": false,
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "333ef8076fa6ba32"
+            ]
+        ]
+    },
+    {
+        "id": "333ef8076fa6ba32",
+        "type": "json",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 530,
+        "y": 100,
+        "wires": [
+            [
+                "52b908281b85f563"
+            ]
+        ]
+    },
+    {
+        "id": "52b908281b85f563",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "Restore",
+        "func": "var output = [];\n\nfor (var i=0; i<msg.payload.length; i++) {\n    switch (msg.payload[i].type) {\n        case 'undefined': \n            // the global variable probably had no value, nothing needs to be restored\n            output.push(msg.payload[i].key + \" is undefined.\");\n            break;\n        case 'number':\n            if (msg.payload[i].value===\"NaN\") {\n                // there is no valid value to be restored, skip this variable\n                output.push(msg.payload[i].key + \" is NaN.\");\n            } else {\n                if (msg.payload[i].value.toString().indexOf(\".\")>-1) {\n                    // the value appears to be a float\n                    global.set(msg.payload[i].key,parseFloat(msg.payload[i].value));\n                    output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n                } else {\n                    global.set(msg.payload[i].key,parseInt(msg.payload[i].value));\n                    output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n                }\n            }\n            break;\n        case 'string':\n            global.set(msg.payload[i].key,msg.payload[i].value);\n            output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n            break;\n        case 'boolean':\n            global.set(msg.payload[i].key,msg.payload[i].value===\"true\");\n            output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n            break;\n    }\n}\n\nmsg.payload = output;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 100,
+        "wires": [
+            [
+                "732ee04a94ac5711",
+                "2977a24cf5163e1b"
+            ]
+        ]
+    },
+    {
+        "id": "87bc579368c48e97",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "datahub_id",
+        "label": "Datahub ID: ",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 1070,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "732ee04a94ac5711",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "Get Datahub ID",
+        "func": "// Assign MQTT input to variables\nvar datahub_id=global.get('datahub_id') || '';\nmsg.payload = datahub_id;\nreturn(msg);\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 100,
+        "wires": [
+            [
+                "87bc579368c48e97"
+            ]
+        ]
+    },
+    {
+        "id": "112c3e1751c11fa6",
+        "type": "inject",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "d84c542b5ac9396e"
+            ]
+        ]
+    },
+    {
+        "id": "f0144dc128ec85b0",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "name": "project_name",
+        "label": "Project: ",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 1080,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2977a24cf5163e1b",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "Get Project Name",
+        "func": "// Assign MQTT input to variables\nvar project=global.get('project') || '';\nmsg.payload = project;\nreturn(msg);\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 140,
+        "wires": [
+            [
+                "f0144dc128ec85b0"
+            ]
+        ]
+    },
+    {
+        "id": "91e1bb054703a6b3",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "From Postgres",
+        "func": "var unix = (global.get('current_unix') || 0) - msg.payload ;\n\nvar query = \"\";\nquery  = \"select device_id, data_type, count(*), max(timestamp) + interval '10 hour' as time from oats_data\";\nquery  += \" where ts_unix > \"; \nquery  += String(unix);\nquery  += \" group by device_id, data_type order by device_id, data_type, time desc;\";\n\nmsg.query = query\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1080,
+        "wires": [
+            [
+                "9f2198a8d141a455",
+                "4b9fc65d1f93edc7",
+                "677e53f554c52390"
+            ]
+        ]
+    },
+    {
+        "id": "c40f4a71f02a82a8",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 29,
+        "width": 7,
+        "height": 1,
+        "name": "timestamp",
+        "label": "Last Update: ",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "x": 1050,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "6b39be99c655ee53",
+        "type": "comment",
+        "z": "89826f5822f4addf",
+        "name": "Dashboard - Postgres Tables",
+        "info": "",
+        "x": 140,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "646c384fa606d31b",
+        "type": "ui_button",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "group": "6d7f0b2d47a1f492",
+        "order": 23,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Last 6 Hour",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "21600",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 1120,
+        "wires": [
+            [
+                "91e1bb054703a6b3",
+                "62b30a7c89312228"
+            ]
+        ]
+    },
+    {
+        "id": "62038a3ad0081dc1",
+        "type": "ui_button",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "group": "6d7f0b2d47a1f492",
+        "order": 26,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Last Day",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "86400",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 80,
+        "y": 1160,
+        "wires": [
+            [
+                "91e1bb054703a6b3",
+                "62b30a7c89312228"
+            ]
+        ]
+    },
+    {
+        "id": "907904968e293755",
+        "type": "ui_button",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "group": "6d7f0b2d47a1f492",
+        "order": 27,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Last Week",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "604800",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 1200,
+        "wires": [
+            [
+                "91e1bb054703a6b3",
+                "62b30a7c89312228"
+            ]
+        ]
+    },
+    {
+        "id": "2a390d20242acd30",
+        "type": "ui_button",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "group": "6d7f0b2d47a1f492",
+        "order": 22,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Last Hour",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "3600",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 80,
+        "y": 1080,
+        "wires": [
+            [
+                "91e1bb054703a6b3",
+                "62b30a7c89312228"
+            ]
+        ]
+    },
+    {
+        "id": "7206ac9b1f2af44d",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "current_timestamp",
+        "func": "var unix = global.get('current_unix') || 0;\nunix = unix * 1000\n\nvar date;\ndate = new Date(unix);\ndate = (date.getFullYear() + '-' + ('00' + (date.getMonth()+1)).slice(-2) + '-' + ('00' + date.getDate()).slice(-2) + ' ' + ('00' + date.getHours()).slice(-2) + ':' + ('00' + date.getMinutes()).slice(-2) + ':' + ('00' + date.getSeconds()).slice(-2));\n\nmsg.payload = date;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 810,
+        "y": 1120,
+        "wires": [
+            [
+                "c40f4a71f02a82a8"
+            ]
+        ]
+    },
+    {
+        "id": "9f2198a8d141a455",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "pending",
+        "func": "msg.payload = \"pending...\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 780,
+        "y": 1160,
+        "wires": [
+            [
+                "c40f4a71f02a82a8"
+            ]
+        ]
+    },
+    {
+        "id": "b46322cf1ec3bc58",
+        "type": "json",
+        "z": "89826f5822f4addf",
+        "name": "fromJSON",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 290,
+        "y": 600,
+        "wires": [
+            [
+                "b9ec6393b0d71d0a",
+                "be0145990b58d79d"
+            ]
+        ]
+    },
+    {
+        "id": "85047fbd7399b273",
+        "type": "comment",
+        "z": "89826f5822f4addf",
+        "name": "Data In ",
+        "info": "",
+        "x": 70,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "a512b58811c8c87f",
+        "type": "comment",
+        "z": "89826f5822f4addf",
+        "name": "Data Out",
+        "info": "",
+        "x": 80,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "99f233b1c9a64eab",
+        "type": "ui_template",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "name": "",
+        "order": 31,
+        "width": 14,
+        "height": 11,
+        "format": "<table id=\"table\" border=\"1\">\n    <tr>\n        <th>Device ID</th>\n        <th>Data Type</th>\n        <th>Packet Count</th>\n        <th>Last message </th>\n        </tr>\n    <tbody>\n        <tr ng-repeat=\"row in msg.payload\">\n            <td ng-repeat=\"item in row\" >{{item}}</td>\n        </tr>\n    </tbody>\n</table>",
+        "storeOutMessages": true,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 780,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d84c542b5ac9396e",
+        "type": "is online",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "url": "",
+        "action": "0",
+        "x": 340,
+        "y": 240,
+        "wires": [
+            [
+                "2da54a4dfac5fab3",
+                "b3c4b38a395f5eef"
+            ]
+        ]
+    },
+    {
+        "id": "689f3a1fad294078",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 15,
+        "width": 6,
+        "height": 1,
+        "name": "Internet Connection Status",
+        "label": "Internet Connection Status:",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 840,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2da54a4dfac5fab3",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "func": "var status = msg.payload; \nmsg.payload = {};\n\nif(status == true){\n    msg.payload = 'Online';\n}\nif(status == false){\n    msg.payload = 'Offline';\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "689f3a1fad294078"
+            ]
+        ]
+    },
+    {
+        "id": "62b30a7c89312228",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "From Postgres",
+        "func": "var unix = (global.get('current_unix') || 0) - msg.payload ;\n\nvar query = \"\";\nquery  =  \"select count(distinct(device_id)) from oats_data\";\nquery  += \" where ts_unix > \"; \nquery  += String(unix);\nquery  += \";\";\n\nmsg.query = query\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1200,
+        "wires": [
+            [
+                "b9c6598052b8ac78"
+            ]
+        ]
+    },
+    {
+        "id": "8742b71b53483671",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "From Postgres",
+        "func": "msg.payload = msg.payload[0].count; \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 1200,
+        "wires": [
+            [
+                "957f69a03d79fc40"
+            ]
+        ]
+    },
+    {
+        "id": "957f69a03d79fc40",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 30,
+        "width": 7,
+        "height": 1,
+        "name": "countdevices",
+        "label": "Devices Count:",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 1060,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "e08a7801bd06b733",
+        "type": "comment",
+        "z": "89826f5822f4addf",
+        "name": "Device Status Table",
+        "info": "",
+        "x": 110,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "d7560838a99db157",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "From Postgres",
+        "func": "var query = \"\";\nquery  = \"select system_table.device_id, location_table.last_location_msg, inertial_table.last_inertial_msg, system_table.last_system_msg, system_table.vbat \";\nquery  += \"from (select device_id, timestamp + interval '10 hour' as last_system_msg, sensor_data::json->'vbat' as vbat \";\nquery  += \"from (select *, max(timestamp) over (partition by device_id) as last_packet from oats_data where data_type = 'systemlog') t \";\nquery  += \"where timestamp = last_packet) system_table \";\nquery  += \"inner join (select device_id, max(timestamp) + interval '10 hour' as last_location_msg from oats_data where data_type = 'location' group by device_id) location_table on system_table.device_id=location_table.device_id \";\nquery  += \"inner join (select device_id, max(timestamp) + interval '10 hour' as last_inertial_msg from oats_data where data_type = 'accelerometer_features' group by device_id) inertial_table on system_table.device_id=inertial_table.device_id; \";\n\n\nmsg.query = query;\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 940,
+        "wires": [
+            [
+                "3f19be7f7970eb16"
+            ]
+        ]
+    },
+    {
+        "id": "ff40e1ade2d9bbd9",
+        "type": "ui_template",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "name": "Device Status Table",
+        "order": 19,
+        "width": 14,
+        "height": 12,
+        "format": "<table id=\"table\" border=\"1\">\n    <tr>\n        <th>Device id</th>\n        <th>Last Location Message</th>\n        <th>Last Inertial Message</th>\n        <th>Last System Message</th>\n        <th>Battery</th>\n        </tr>\n    <tbody>\n        <tr ng-repeat=\"row in msg.payload\">\n            <td ng-repeat=\"item in row\" >{{item}}</td>\n        </tr>\n    </tbody>\n</table>",
+        "storeOutMessages": true,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 650,
+        "y": 939,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8edcdb16a21f3386",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "current_timestamp",
+        "func": "var unix = global.get('current_unix') || 0;\nunix = unix * 1000\n\nvar date;\ndate = new Date(unix);\ndate = (date.getFullYear() + '-' + ('00' + (date.getMonth()+1)).slice(-2) + '-' + ('00' + date.getDate()).slice(-2) + ' ' + ('00' + date.getHours()).slice(-2) + ':' + ('00' + date.getMinutes()).slice(-2) + ':' + ('00' + date.getSeconds()).slice(-2));\n\nmsg.payload = date;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 650,
+        "y": 979,
+        "wires": [
+            [
+                "898225c161c944bd"
+            ]
+        ]
+    },
+    {
+        "id": "898225c161c944bd",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 18,
+        "width": 6,
+        "height": 1,
+        "name": "timestamp",
+        "label": "Last Update: ",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 830,
+        "y": 979,
+        "wires": []
+    },
+    {
+        "id": "87e58988ee77d868",
+        "type": "inject",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 90,
+        "y": 940,
+        "wires": [
+            [
+                "d7560838a99db157"
+            ]
+        ]
+    },
+    {
+        "id": "f8869d03993bd897",
+        "type": "ui_button",
+        "z": "89826f5822f4addf",
+        "name": "DeviceStatusRefresh",
+        "group": "6d7f0b2d47a1f492",
+        "order": 17,
+        "width": 8,
+        "height": 1,
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 980,
+        "wires": [
+            [
+                "d7560838a99db157"
+            ]
+        ]
+    },
+    {
+        "id": "37c34b1d7d6f4797",
+        "type": "exec",
+        "z": "89826f5822f4addf",
+        "command": "bash dbSync/dbSync.sh",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Database Sync",
+        "x": 320,
+        "y": 800,
+        "wires": [
+            [
+                "d4388b2341655502"
+            ],
+            [
+                "d4388b2341655502"
+            ],
+            [
+                "d4388b2341655502"
+            ]
+        ]
+    },
+    {
+        "id": "55eb128740c5aaba",
+        "type": "inject",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 00 * * *",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 800,
+        "wires": [
+            [
+                "37c34b1d7d6f4797"
+            ]
+        ]
+    },
+    {
+        "id": "b3c4b38a395f5eef",
+        "type": "exec",
+        "z": "89826f5822f4addf",
+        "command": "bash dbSync/dbConnected.sh",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Database Checking",
+        "x": 590,
+        "y": 300,
+        "wires": [
+            [
+                "41cb7f9548224fec"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "41cb7f9548224fec",
+        "type": "ui_text",
+        "z": "89826f5822f4addf",
+        "group": "6d7f0b2d47a1f492",
+        "order": 12,
+        "width": 6,
+        "height": 1,
+        "name": "Cloud Connection Status",
+        "label": "Cloud Connection Status:",
+        "format": "{{msg.payload}}",
+        "layout": "",
+        "className": "",
+        "x": 830,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d4388b2341655502",
+        "type": "debug",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "86508411c53eb117",
+        "type": "ui_button",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "group": "6d7f0b2d47a1f492",
+        "order": 10,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Check Connection",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "d84c542b5ac9396e"
+            ]
+        ]
+    },
+    {
+        "id": "2c3dcab04c1ad9ab",
+        "type": "ui_button",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "group": "6d7f0b2d47a1f492",
+        "order": 13,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Database Sync",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 840,
+        "wires": [
+            [
+                "37c34b1d7d6f4797"
+            ]
+        ]
+    },
+    {
+        "id": "4bf254b82a582aec",
+        "type": "postgresql",
+        "z": "89826f5822f4addf",
+        "name": "postgres",
+        "query": "",
+        "postgreSQLConfig": "67c3998c806c3a62",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 740,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b9ec6393b0d71d0a",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "MQTT_to_Postgresql",
+        "func": "// Assign MQTT input to variables\nvar datahub_id=global.get('datahub_id') || '';\n\nvar device_id = msg.payload.id;\n\nvar ts_unix = msg.payload.time;\nvar timestamp = new Date(ts_unix * 1000).toISOString()\n\nvar sensor_data = JSON.stringify(msg.payload);\nvar data_type = msg.topic.split(\"/\")[2]\n\nvar datahub_timestamp = Math.floor(Date.now() / 1000);\n\n\n\nif(ts_unix > 1600000000 && ts_unix < 2000000000){\n    var query = `\n    INSERT INTO oats_data (datahub_timestamp, datahub_id, device_id, timestamp, ts_unix, data_type, sensor_data)\n    VALUES ('${datahub_timestamp}', '${datahub_id}', '${device_id}', '${timestamp}', '${ts_unix}', '${data_type}', '${sensor_data}');\n    `;\n\n    msg.query = query\n    \n    return(msg);\n}\n\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 600,
+        "wires": [
+            [
+                "4bf254b82a582aec"
+            ]
+        ]
+    },
+    {
+        "id": "3f19be7f7970eb16",
+        "type": "postgresql",
+        "z": "89826f5822f4addf",
+        "name": "postgres",
+        "query": "",
+        "postgreSQLConfig": "67c3998c806c3a62",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 460,
+        "y": 940,
+        "wires": [
+            [
+                "ff40e1ade2d9bbd9",
+                "8edcdb16a21f3386"
+            ]
+        ]
+    },
+    {
+        "id": "4b9fc65d1f93edc7",
+        "type": "postgresql",
+        "z": "89826f5822f4addf",
+        "name": "postgres",
+        "query": "",
+        "postgreSQLConfig": "67c3998c806c3a62",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 580,
+        "y": 1080,
+        "wires": [
+            [
+                "99f233b1c9a64eab",
+                "7206ac9b1f2af44d"
+            ]
+        ]
+    },
+    {
+        "id": "b9c6598052b8ac78",
+        "type": "postgresql",
+        "z": "89826f5822f4addf",
+        "name": "postgres",
+        "query": "",
+        "postgreSQLConfig": "67c3998c806c3a62",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 580,
+        "y": 1200,
+        "wires": [
+            [
+                "8742b71b53483671"
+            ]
+        ]
+    },
+    {
+        "id": "677e53f554c52390",
+        "type": "debug",
+        "z": "89826f5822f4addf",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "f8c01404b829b99c",
+        "type": "mqtt in",
+        "z": "89826f5822f4addf",
+        "name": "devices",
+        "topic": "oats/data/#",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "05f9ebe1784cb954",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 70,
+        "y": 600,
+        "wires": [
+            [
+                "b46322cf1ec3bc58"
+            ]
+        ]
+    },
+    {
+        "id": "b6df9b44b6866782",
+        "type": "mqtt out",
+        "z": "89826f5822f4addf",
+        "name": "cloud",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7fc5a5f1cac3b955",
+        "x": 530,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "be0145990b58d79d",
+        "type": "function",
+        "z": "89826f5822f4addf",
+        "name": "MQTT_to_Postgresql",
+        "func": "// Assign MQTT input to variables\nvar datahub_id=global.get('datahub_id') || '';\n\nvar device_id = msg.payload.id;\n\nmsg.topic += datahub_id;\nmsg.topic += \"/\";\nmsg.topic += device_id;\nmsg.topic += \"/\";\n\nreturn(msg)\n\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 740,
+        "wires": [
+            [
+                "f7945a8194debf41"
+            ]
+        ]
+    },
+    {
+        "id": "f7945a8194debf41",
+        "type": "json",
+        "z": "89826f5822f4addf",
+        "name": "toJSON",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 380,
+        "y": 740,
+        "wires": [
+            [
+                "b6df9b44b6866782",
+                "44f9d5809a1a6e0c"
+            ]
+        ]
+    },
+    {
+        "id": "44f9d5809a1a6e0c",
+        "type": "debug",
+        "z": "89826f5822f4addf",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "38a415b4f1a83b58",
+        "type": "comment",
+        "z": "29a3d88b3fa190b3",
+        "name": "Device Config",
+        "info": "",
+        "x": 90,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "da5932cf617718fb",
+        "type": "json",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1050,
+        "y": 300,
+        "wires": [
+            [
+                "620fb581e5b63c41",
+                "ad42fe68f8038109"
+            ]
+        ]
+    },
+    {
+        "id": "99d7a7dfeb6b0ed5",
+        "type": "ui_form",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "label": "Device Configuration",
+        "group": "ea6018dec67637f7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Data Upload Interval (seconds)",
+                "value": "dataUploadInterval",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Sensor Update Interval (seconds)",
+                "value": "sensorUpdateInterval",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Sensor Sample Length (seconds)",
+                "value": "sensorSamplingLength",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "GNSS Settle Time (seconds)",
+                "value": "gnssSettle",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "GNSS Skip Rate",
+                "value": "gnssSkipRate",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "dataUploadInterval": "",
+            "sensorUpdateInterval": "",
+            "sensorSamplingLength": "",
+            "gnssSettle": "",
+            "gnssSkipRate": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 440,
+        "y": 300,
+        "wires": [
+            [
+                "da5932cf617718fb",
+                "302cb88da2e087db",
+                "fb2c9e4024d0b8b3",
+                "ed8775298f8c5c3d",
+                "427f10e8970560dd",
+                "1b221d0dc3434b55",
+                "4dce966938a4a655"
+            ]
+        ]
+    },
+    {
+        "id": "695d518601baa382",
+        "type": "ui_text",
+        "z": "29a3d88b3fa190b3",
+        "group": "0b1acb879eb8c76b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Data Upload Interval",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1320,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "620fb581e5b63c41",
+        "type": "mqtt out",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "topic": "oats/system/config/",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "514c94d4.a0f28c",
+        "x": 1330,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "302cb88da2e087db",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "dataUploadInterval",
+        "func": "var value = msg.payload.dataUploadInterval;\nglobal.set('dataUploadInterval', value);\n\nmsg.payload = {};\nmsg.payload = value;\n\nreturn(msg);\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 380,
+        "wires": [
+            [
+                "695d518601baa382"
+            ]
+        ]
+    },
+    {
+        "id": "ed8775298f8c5c3d",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "sensorSamplingLength",
+        "func": "var value = msg.payload.sensorSamplingLength;\nglobal.set('sensorSamplingLength', value);\n\nmsg.payload = {};\nmsg.payload = value;\n\nreturn(msg);",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 460,
+        "wires": [
+            [
+                "7046b7541d6ade5a"
+            ]
+        ]
+    },
+    {
+        "id": "7046b7541d6ade5a",
+        "type": "ui_text",
+        "z": "29a3d88b3fa190b3",
+        "group": "0b1acb879eb8c76b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Sensor Sample Length",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1320,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "fb2c9e4024d0b8b3",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "sensorUpdateInterval",
+        "func": "var value = msg.payload.sensorUpdateInterval;\nglobal.set('sensorUpdateInterval', value);\n\nmsg.payload = {};\nmsg.payload = value;\n\nreturn(msg);",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 420,
+        "wires": [
+            [
+                "9ac88286e1747a89"
+            ]
+        ]
+    },
+    {
+        "id": "9ac88286e1747a89",
+        "type": "ui_text",
+        "z": "29a3d88b3fa190b3",
+        "group": "0b1acb879eb8c76b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Sensor Update Interval",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1330,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "050e6dfa8a4b3ee7",
+        "type": "ui_text",
+        "z": "29a3d88b3fa190b3",
+        "group": "0b1acb879eb8c76b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "GNSS Settle Time",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1310,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "427f10e8970560dd",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "gnssSettle",
+        "func": "var value = msg.payload.gnssSettle;\nglobal.set('gnssSettle', value);\n\nmsg.payload = {};\nmsg.payload = value;\n\nreturn(msg);",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 500,
+        "wires": [
+            [
+                "050e6dfa8a4b3ee7"
+            ]
+        ]
+    },
+    {
+        "id": "02a8244a9f509fff",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "Current Configuration",
+        "func": "msg.payload = {};\n\nmsg.payload.dataUploadInterval = global.get(\"dataUploadInterval\");\nmsg.payload.sensorUpdateInterval = global.get(\"sensorUpdateInterval\");\nmsg.payload.sensorSamplingLength = global.get(\"sensorSamplingLength\");\nmsg.payload.gnssSettle = global.get(\"gnssSettle\");\nmsg.payload.gnssSkipRate = global.get(\"gnssSkipRate\");\n\nreturn(msg);\n\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 460,
+        "wires": [
+            [
+                "da5932cf617718fb",
+                "302cb88da2e087db",
+                "fb2c9e4024d0b8b3",
+                "ed8775298f8c5c3d",
+                "427f10e8970560dd",
+                "99d7a7dfeb6b0ed5",
+                "4dce966938a4a655"
+            ]
+        ]
+    },
+    {
+        "id": "b77fe488b4a357e1",
+        "type": "file in",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "filename": "/home/pi/device_config.json",
+        "format": "utf8",
+        "allProps": false,
+        "x": 320,
+        "y": 120,
+        "wires": [
+            [
+                "c74c040135fc3d55"
+            ]
+        ]
+    },
+    {
+        "id": "c74c040135fc3d55",
+        "type": "json",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 530,
+        "y": 120,
+        "wires": [
+            [
+                "5e99e93db6187a29"
+            ]
+        ]
+    },
+    {
+        "id": "5e99e93db6187a29",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "Restore",
+        "func": "var output = [];\n\nfor (var i=0; i<msg.payload.length; i++) {\n    switch (msg.payload[i].type) {\n        case 'undefined': \n            // the global variable probably had no value, nothing needs to be restored\n            output.push(msg.payload[i].key + \" is undefined.\");\n            break;\n        case 'number':\n            if (msg.payload[i].value===\"NaN\") {\n                // there is no valid value to be restored, skip this variable\n                output.push(msg.payload[i].key + \" is NaN.\");\n            } else {\n                if (msg.payload[i].value.toString().indexOf(\".\")>-1) {\n                    // the value appears to be a float\n                    global.set(msg.payload[i].key,parseFloat(msg.payload[i].value));\n                    output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n                } else {\n                    global.set(msg.payload[i].key,parseInt(msg.payload[i].value));\n                    output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n                }\n            }\n            break;\n        case 'string':\n            global.set(msg.payload[i].key,msg.payload[i].value);\n            output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n            break;\n        case 'boolean':\n            global.set(msg.payload[i].key,msg.payload[i].value===\"true\");\n            output.push(msg.payload[i].key + \" is restored to \" + msg.payload[i].value);\n            break;\n    }\n}\n\nmsg.payload = output;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 120,
+        "wires": [
+            [
+                "e08b8075f685cfca",
+                "61c36f49dde0add7",
+                "d8318b92ff09e29c",
+                "e5207cf79e2dcc57",
+                "0f26ee7c3533b964"
+            ]
+        ]
+    },
+    {
+        "id": "a600eb9ddb65f679",
+        "type": "inject",
+        "z": "29a3d88b3fa190b3",
+        "name": "Startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "b77fe488b4a357e1"
+            ]
+        ]
+    },
+    {
+        "id": "9f0299013d07501a",
+        "type": "file",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "filename": "/home/pi/device_config.json",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1560,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e08b8075f685cfca",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "dataUploadInterval",
+        "func": "msg.topic = \"dataUploadInterval\";\nmsg.payload = global.get(\"dataUploadInterval\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 80,
+        "wires": [
+            [
+                "b7eb31773145c551"
+            ]
+        ]
+    },
+    {
+        "id": "b7eb31773145c551",
+        "type": "link out",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "mode": "link",
+        "links": [],
+        "x": 1065,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "61c36f49dde0add7",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "sensorUpdateInterval",
+        "func": "msg.topic = \"sensorUpdateInterval\";\nmsg.payload = global.get(\"sensorUpdateInterval\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 120,
+        "wires": [
+            [
+                "2fa69e4b6eaf8ad3"
+            ]
+        ]
+    },
+    {
+        "id": "2fa69e4b6eaf8ad3",
+        "type": "link out",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "mode": "link",
+        "links": [],
+        "x": 1065,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e5207cf79e2dcc57",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "sensorSampleLength",
+        "func": "msg.topic = \"sensorSampleLength\";\nmsg.payload = global.get(\"sensorSampleLength\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 160,
+        "wires": [
+            [
+                "5067561fc12e54ba"
+            ]
+        ]
+    },
+    {
+        "id": "5067561fc12e54ba",
+        "type": "link out",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "mode": "link",
+        "links": [],
+        "x": 1065,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d8318b92ff09e29c",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "gnssSettle",
+        "func": "msg.topic = \"gnssSettle\";\nmsg.payload = global.get(\"gnssSettle\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 200,
+        "wires": [
+            [
+                "26b28390784e55f1"
+            ]
+        ]
+    },
+    {
+        "id": "26b28390784e55f1",
+        "type": "link out",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "mode": "link",
+        "links": [],
+        "x": 1065,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "be27b441e73935fc",
+        "type": "inject",
+        "z": "29a3d88b3fa190b3",
+        "name": "Startup (delay 5 seconds)",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "02a8244a9f509fff"
+            ]
+        ]
+    },
+    {
+        "id": "ad42fe68f8038109",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "Save to File",
+        "func": "// global variables separated by semicolon to be saved\nvar globallist = \"dataUploadInterval;sensorUpdateInterval;sensorSamplingLength;gnssSettle\";\nvar mylist = globallist.split(\";\");\n\nvar outputs = [];\n\nfor (var i=0; i<mylist.length; i++) {\n    outputs.push({ key : mylist[i], type: typeof global.get(mylist[i]), value: global.get(mylist[i])});\n}\n\nmsg.payload = outputs;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1290,
+        "y": 340,
+        "wires": [
+            [
+                "9f0299013d07501a"
+            ]
+        ]
+    },
+    {
+        "id": "1b221d0dc3434b55",
+        "type": "delay",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 440,
+        "y": 380,
+        "wires": [
+            [
+                "02a8244a9f509fff"
+            ]
+        ]
+    },
+    {
+        "id": "2aa819c04eda2ac6",
+        "type": "ui_text",
+        "z": "29a3d88b3fa190b3",
+        "group": "0b1acb879eb8c76b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "GNSS Skip Rate",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1300,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "4dce966938a4a655",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "gnssSkipRate",
+        "func": "var value = msg.payload.gnssSkipRate;\nglobal.set('gnssSkipRate', value);\n\nmsg.payload = {};\nmsg.payload = value;\n\nreturn(msg);",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 540,
+        "wires": [
+            [
+                "2aa819c04eda2ac6"
+            ]
+        ]
+    },
+    {
+        "id": "0f26ee7c3533b964",
+        "type": "function",
+        "z": "29a3d88b3fa190b3",
+        "name": "gnssSkipRate",
+        "func": "msg.topic = \"gnssSkipRate\";\nmsg.payload = global.get(\"gnssSkipRate\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 240,
+        "wires": [
+            [
+                "75d093920eb05b15"
+            ]
+        ]
+    },
+    {
+        "id": "75d093920eb05b15",
+        "type": "link out",
+        "z": "29a3d88b3fa190b3",
+        "name": "",
+        "mode": "link",
+        "links": [],
+        "x": 1065,
+        "y": 240,
+        "wires": []
+    }
+]
+"

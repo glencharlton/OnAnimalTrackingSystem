@@ -1,0 +1,2 @@
+[prod]
+cloud_setup ansible_host=203.101.225.152 ansible_user=ubuntu

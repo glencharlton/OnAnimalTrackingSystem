@@ -1,0 +1,2 @@
+[{"key":"dataUploadInterval","type":"number","value":10800},{"key":"sensorUpdateInterval","type":"number","value":600},{"key":"sensorSamplingLength","type":"number","value":5},{"key":"gnssSettle","type":"number","value":10},
+{"key":"gnssSkipRate","type":"number","value":0}]
