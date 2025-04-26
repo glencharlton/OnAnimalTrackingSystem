@@ -1,0 +1,5 @@
+# ~~ database user password  ~~
+local_database_user_password: password
+cloud_mosquitto_password: password
+nodered_password: password
+cloud_database_password: password

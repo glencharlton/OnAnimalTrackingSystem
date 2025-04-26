@@ -1,0 +1,7 @@
+joblib
+numpy
+pandas
+psycopg2-binary
+pykalman
+pytz
+scipy

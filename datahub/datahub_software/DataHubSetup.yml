@@ -1,0 +1,471 @@
+---
+- name: Setup cloud based IoT server
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    # Setup static IP
+    - name: Ensure dhcpcd package is installed
+      apt:
+        name: dhcpcd5
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Ensure dhcpcd.conf exists
+      file:
+        path: /etc/dhcpcd.conf
+        state: touch
+
+    - name: Configure static IP for eth0
+      blockinfile:
+        path: /etc/dhcpcd.conf
+        block: |
+          interface eth0
+          static ip_address=192.168.4.100/24
+          static routers=192.168.4.1
+          static domain_name_servers=8.8.8.8 8.8.4.4
+        marker: "# {mark} ANSIBLE MANAGED BLOCK"
+
+    - name: Check if dhcpcd service is available
+      command: systemctl status dhcpcd
+      register: dhcpcd_status
+      ignore_errors: yes
+
+    - name: Restart dhcpcd service to apply changes (if available)
+      service:
+        name: dhcpcd
+        state: restarted
+      when: dhcpcd_status.rc == 0
+
+
+    - name: Configure static IP for eth0
+      blockinfile:
+        path: /etc/dhcpcd.conf
+        block: |
+          interface eth0
+          static ip_address=192.168.4.1/24
+          static routers=192.168.4.10
+          static domain_name_servers=8.8.8.8 8.8.4.4
+        marker: "# {mark} ANSIBLE MANAGED BLOCK"
+
+    - name: Restart dhcpcd service to apply changes
+      service:
+        name: dhcpcd
+        state: restarted
+
+    - name: Wait for the Raspberry Pi to reboot and reconnect
+      wait_for_connection:
+        delay: 10
+        timeout: 300
+        sleep: 10
+      delegate_to: "{{ inventory_hostname }}"
+
+    # Basics
+    - name: upgrade all packages
+      ansible.builtin.apt: name=* state=latest
+
+    - name: apply correct timezone
+      community.general.timezone:
+        name: "{{ time_zone }}"
+
+    - name: Install utility related packages
+      ansible.builtin.apt:
+        state: present
+        update_cache: yes
+        name:
+          - git
+          - vim
+          - zip
+          - unzip
+          - bzip2
+          - tar
+          - sasl2-bin
+          - cyrus-imapd
+          - curl 
+          - gnupg2
+          - curl
+          - gpg 
+          - gnupg2 
+          - software-properties-common
+          - apt-transport-https
+          - lsb-release 
+          - ca-certificates
+          - net-tools
+          - python3-psycopg2
+      tags:
+        - install-generic-packages
+
+    - name: Install service related packages
+      ansible.builtin.apt:
+        state: present
+        name:
+          - mailutils
+          - postfix
+          - sysstat
+          - rsyslog
+          - auditd
+
+    - name: Add Apt signing key postgresql
+      ansible.builtin.apt_key:
+        url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+        state: present
+
+    - name: Add Postgres repo to sources list
+      apt_repository: 
+        repo: 'deb http://apt.postgresql.org/pub/repos/apt {{ ansible_distribution_release }}-pgdg main'
+        state: present
+
+    - name: Install Postgresql
+      apt:
+        state: present
+        name:
+          - postgresql-{{ postgresql_version }}
+          - postgresql-client-{{ postgresql_version }}
+      tags:
+        - postgresql
+
+    - name: Find out if PostgreSQL is initialized
+      ansible.builtin.stat:
+          path: "/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf"
+      register: postgres_already_initialised
+
+    - name: Change postgresql auth method
+      replace: 
+        path: "/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf"
+        regexp: "{{ item.find_value }}"
+        replace: "{{ item.replace_value}}"
+      with_items:
+        - { find_value: '^local\s{1,}all\s{1,}postgres\s{1,}peer',
+          replace_value: 'local   all             all                                     trust'}
+        - { find_value: '^local\s{1,}all\s{1,}all\s{1,}peer',
+          replace_value: 'local   all             all                                     trust'}        
+        - { find_value: '^host\s{1,}all\s{1,}all\s{1,}127.0.0.1/32\s{1,}ident',
+          replace_value: 'host    all             all             127.0.0.1/32            trust'}
+        - { find_value: 'scram-sha-256',
+          replace_value: 'md5'}
+
+    - name: Ensure specific line is present in pg_hba.conf
+      lineinfile:
+        path: "/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf"
+        line: 'host    {{ local_database_name }}            all           0.0.0.0/0       md5'
+        state: present
+        insertafter: EOF
+
+    - name: Change postgresql.conf for password encryption
+    
+      replace: 
+        path: "/etc/postgresql/{{ postgresql_version }}/main/postgresql.conf"
+        regexp: "{{ item.find_value }}"
+        replace: "{{ item.replace_value}}"
+      with_items:
+        - { find_value: '#password_encryption = scram-sha-256',
+          replace_value: "password_encryption = md5"}
+        - { find_value: "#listen_addresses = 'localhost'",
+          replace_value: "listen_addresses = '*'"}
+
+      notify: "restart postgresql server"
+      tags:
+        - change-postgres-auth
+
+    - name: flush handlers # This is specially required to restart postgresql if pg_hba.conf is updated
+      meta: flush_handlers
+
+    - name: start postgresql
+      service: name=postgresql.service state=started enabled=yes
+
+    - name: Wait 5 seconds for postgres to be restarted
+      wait_for:
+        port: 5432
+        delay: 5
+
+    - name: Create database
+      postgresql_db:
+        state: present
+        name: "{{ local_database_name }}"
+      become: yes
+      become_user: postgres
+      tags: 
+        - postgres
+        - db
+
+    - name: create psql user for database
+      postgresql_user:
+        db: "{{ local_database_name }}"
+        name: "{{ local_database_user }}"
+        password: "{{ local_database_user_password }}"
+        priv: "ALL"
+        role_attr_flags: CREATEROLE,CREATEDB,REPLICATION,BYPASSRLS,SUPERUSER
+      tags:
+        - postgres
+        - db
+
+    - name: start services
+      service: name={{item}} state=started enabled=yes
+      with_items:
+      - postfix.service
+      - rsyslog.service
+      - auditd.service
+
+    ##### Apply SQL script to database
+    - name: Copy Postgres file with owner and permissions
+      ansible.builtin.copy:
+        src: inventory/host_vars/datahub_setup/files/setup.sql
+        dest: /home/{{ ansible_user }}/setup.sql
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0644'
+
+    - name: Run query from SQL script using UTF-8 client encoding for session and positional args
+      community.postgresql.postgresql_script:
+        db: "{{ local_database_name }}"
+        path: /home/{{ ansible_user }}/setup.sql
+        positional_args:
+          - 1
+        encoding: UTF-8
+
+    - name: Remove SQL script
+      command: rm /home/{{ ansible_user }}/setup.sql
+
+    ##### Mosquitto #####
+    - name: Install Mosquitto and Mosquitto Clients
+      apt:
+        name: 
+          - mosquitto
+          - mosquitto-clients
+        state: present
+
+    - name: Copy custom Mosquitto configuration file
+      copy:
+        src: inventory/host_vars/datahub_setup/files/mosquitto.conf
+        dest: /etc/mosquitto/mosquitto.conf
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0644'
+      notify:
+        - Restart Mosquitto
+
+    - name: Ensure Mosquitto service is enabled and started
+      service:
+        name: mosquitto
+        state: started
+        enabled: yes
+
+   ###### Node-RED ######
+    - name: Install Node.js dependencies
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - curl
+        - software-properties-common
+
+    - name: Add NodeSource APT repository for Node 20.x
+      command: curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+      args:
+        _uses_shell: yes
+    
+    - name: Install Node.js
+      apt:
+        name: nodejs
+
+    - name: Download Node-RED installation script
+      get_url:
+        url: https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered
+        dest: /tmp/update-nodejs-and-nodered.sh
+        mode: '0755'
+
+    - name: Copy install script to /tmp on remote
+      copy:
+        src: inventory/host_vars/datahub_setup/files/nodered_install.sh
+        dest: /tmp/nodered_install.sh
+        mode: '0755'
+
+    - name: Install Node-RED and Node.js
+      become: yes
+      become_user: "{{ ansible_user }}"
+      shell: /tmp/nodered_install.sh
+      ignore_errors: yes
+
+    - name: Setup Node-RED as a service
+      shell: sudo systemctl enable nodered.service
+
+    - name: Create password hash
+      shell: "node-red admin hash-pw"
+      args:
+        stdin: "{{ nodered_password }}"
+      register: hashed_password
+
+    - name: Create settings.js template
+      template:
+        src: inventory/host_vars/datahub_setup/files/nodered_settings.js
+        dest: /home/{{ ansible_user }}/.node-red/settings.js
+      vars:
+        node_red_hashed_password: "{{ hashed_password.stdout | regex_replace('Password: ', '') }}"
+
+    - name: Install Node-RED palettes
+      npm:
+        name: "{{ item }}"
+        global: yes
+      loop: "{{ node_red_palettes }}"
+
+    - name: Upload Node-RED flow file
+      copy:
+        src: inventory/host_vars/datahub_setup/files/flows.json.txt
+        dest: /home/{{ ansible_user }}/.node-red/flows.json
+        mode: '0644'
+
+    - name: Read file content
+      slurp:
+        src: /home/{{ ansible_user }}/.node-red/flows.json
+      register: slurped_file
+
+    - name: Remove the very first and last double quotes
+      set_fact:
+        modified_content: "{{ slurped_file['content'] | b64decode | regex_replace('^\"', '') | regex_replace('\"$', '') }}"
+
+    - name: Write modified content back to the file
+      copy:
+        dest: /home/{{ ansible_user }}/.node-red/flows.json
+        content: "{{ modified_content }}"
+
+    - name: Update flow.json with usernames and passwords
+      replace: 
+        path: /home/{{ ansible_user }}/.node-red/flows.json
+        regexp: "{{ item.find_value }}"
+        replace: "{{ item.replace_value}}"
+      with_items:
+        - {find_value: 'local_database_name', replace_value: '{{local_database_name}}'}
+        - {find_value: 'local_database_user', replace_value: '{{local_database_user}}'}
+        - {find_value: 'local_database_password', replace_value: '{{local_database_user_password}}'}
+        - {find_value: 'cloud_mqtt_broker', replace_value: '{{cloud_hostname}}'}
+
+    - name: Upload System Config File
+      copy:
+        src: inventory/host_vars/datahub_setup/files/device_config/config.json.txt
+        dest: /home/{{ ansible_user }}/config.json
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0644'
+    
+    - name: Upload Device Config File
+      copy:
+        src: inventory/host_vars/datahub_setup/files/device_config/device_config.json.txt
+        dest: /home/{{ ansible_user }}/device_config.json
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0644'
+
+    - name: Restart Node-RED service
+      systemd:
+        name: nodered
+        state: restarted
+
+    # Configure Database Sync in Python
+    - name: Install python dependencies
+      apt:
+        name:
+          - build-essential
+          - libssl-dev
+          - zlib1g-dev
+          - libncurses5-dev
+          - libgdbm-dev
+          - libsqlite3-dev
+          - wget
+          - libbz2-dev
+          - libreadline-dev
+          - libffi-dev
+          - liblzma-dev
+          - libgdbm-compat-dev
+        state: present
+        update_cache: yes
+
+    - name: Download Python 3.8.1 source code
+      get_url:
+        url: https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tar.xz
+        dest: /tmp/Python-3.8.1.tar.xz
+
+    - name: Extract Python 3.8.1 source code
+      unarchive:
+        src: /tmp/Python-3.8.1.tar.xz
+        dest: /tmp/
+        remote_src: yes
+
+    - name: Build and install Python 3.8.1
+      shell: |
+        cd /tmp/Python-3.8.1
+        ./configure
+        make
+        make altinstall
+      args:
+        chdir: /tmp/Python-3.8.1
+        executable: /bin/bash
+
+    - name: Clean up
+      file:
+        path: /tmp/Python-3.8.1
+        state: absent
+
+    - name: Ensure destination directory exists
+      file:
+        path: /home/{{ ansible_user }}/dbSync/
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+
+    - name: Upload folder with Python scripts
+      copy:
+        src: inventory/host_vars/datahub_setup/files/dbSync/
+        dest: /home/{{ ansible_user }}/dbSync/
+        mode: 0755
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+
+    - name: Update config.py with usernames and passwords
+      replace: 
+        path: "/home/{{ ansible_user }}/dbSync/config.py"
+        regexp: "{{ item.find_value }}"
+        replace: "{{ item.replace_value}}"
+      with_items:
+        - {find_value: 'configure_cloud_hostname', replace_value: '{{cloud_hostname}}'}
+        - {find_value: 'configure_cloud_database_user', replace_value: '{{local_database_name}}'}
+        - {find_value: 'configure_cloud_database_password', replace_value: '{{cloud_database_password}}'}
+        - {find_value: 'configure_local_database_user', replace_value: '{{local_database_user}}'}
+        - {find_value: 'configure_local_database_password', replace_value: '{{local_database_user_password}}'}
+        
+
+    - name: Create a virtual environment
+      command: /usr/local/bin/python3.8 -m venv /home/{{ ansible_user }}/dbSync/venv
+      become_user: "{{ ansible_user }}"
+
+    - name: Upgrade pip in the virtual environment
+      command: /home/{{ ansible_user }}/dbSync/venv/bin/pip install --upgrade pip
+      become_user: "{{ ansible_user }}"
+
+    - name: Install requirements in the virtual environment
+      command: /home/{{ ansible_user }}/dbSync/venv/bin/pip install -r /home/{{ ansible_user }}/dbSync/requirements.txt
+      become_user: "{{ ansible_user }}"
+
+    # Reboot the system
+    - name: Reboot the system
+      command: sudo reboot
+      async: 1
+      poll: 0
+      ignore_errors: true
+ 
+
+  handlers:
+    - name: Restart Mosquitto
+      service:
+        name: mosquitto
+        state: restarted
+    - name: "restart postgresql server"
+      ansible.builtin.service: name=postgresql.service state=restarted
+    - name: enable nodered
+      systemd:
+        name: nodered
+        enabled: yes
+        state: started
+    - name: start nodered
+      systemd:
+        name: nodered
+        state: started
