@@ -4,7 +4,7 @@ This section outlines the software and hardware components of the OATS DataHub S
 
 # Software
 
-The software consists of the use of four open source systems centred around a Node-Red instance. The Node-Red instance is utilised to pass data between the different processing and storage instances and provide users a field-based dashboard for monitoring deployments when at the DataHub location. The other components are:
+The software consists of the use of four open source systems centered around a Node-Red instance. The Node-Red instance is utilized to pass data between the different processing and storage instances and provide users a field-based dashboard for monitoring deployments when at the DataHub location. The other components are:
 
 -   Mosquitto MQTT Broker: This is used as the interface between IOT devices in the field (e.g. OATS Trackers) and the DataHub.
 
@@ -16,7 +16,7 @@ The software consists of the use of four open source systems centred around a No
 
 ## Node-Red
 
-The Node-Red flow (found here: `datahub_software/inventory/host_vars/datahub_setup/files/flows.json.txt`) utilised to pass data between the different processing and storage instances and provide users a field-based dashboard for monitoring deployments when at the DataHub location. It consists of 5 main components outlined below:
+The Node-Red flow (found here: `datahub_software/inventory/host_vars/datahub_setup/files/flows.json.txt`) utilized to pass data between the different processing and storage instances and provide users a field-based dashboard for monitoring deployments when at the DataHub location. It consists of 5 main components outlined below:
 
 -   Data In: This flow monitors the MQTT broker for any new data on topic `oats/data/#` and inserts the data into the PostgreSQL database.
 
@@ -38,7 +38,7 @@ Known working version: 3.8
 
 A virtual environment for Python is setup on the device and are triggered via bash commands within NodeRed. The scripts are:
 
--   `dbSync/dbSync.py` - this script compares the the local and cloud database and inserts any row not in the cloud database
+-   `dbSync/dbSync.py` - this script compares the local and cloud database and inserts any row not in the cloud database
 
 -   `dbSync/dbConnected.py` - this script returns true if the database is connected. This is used for the DataHub status on the local dashboard.
 
@@ -72,4 +72,4 @@ The hardware design of the DataHub is outlined in the following files
 
 # Housing
 
-The main housing for the DataHub is a Polycarbonate enclosure (ENL362015P) from TroPacific (although other equivilant sized enclosures would likely work). The CAD files and an example image for the internal mounting of components can be found here: `housing/`
+The main housing for the DataHub is a Polycarbonate enclosure (ENL362015P) from TroPacific (although other equivalent sized enclosures would likely work). The CAD files and an example image for the internal mounting of components can be found here: `housing/`

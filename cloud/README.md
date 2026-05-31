@@ -18,7 +18,7 @@ The database consists of two schemas (sensors and dashboard) and four tables:
 
 # Data Pipeline
 
-The Node-Red flow (found at port 8080) is utilised to pass data from the MQTT broker for any new data on topic `oats/data/#` and inserts the data into the PostgreSQL database. This also displays a basic dashboard for the user to see the latest status of devices (similar to the datahub) at the endpoint `/ui`.
+The Node-Red flow (found at port 8080) is utilized to pass data from the MQTT broker for any new data on topic `oats/data/#` and inserts the data into the PostgreSQL database. This also displays a basic dashboard for the user to see the latest status of devices (similar to the datahub) at the endpoint `/ui`.
 
 # Data Processing
 
